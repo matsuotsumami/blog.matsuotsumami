@@ -83,13 +83,23 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
+  background: #e0e0e0;
+  box-shadow:  8px 8px 22px #bebebe, -8px -8px 22px #ffffff;
 }
 
-.card:hover,
 .card:focus,
+.card:hover {
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow:  8px 8px 22px #bebebe,
+              -8px -8px 22px #ffffff;
+}
+
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  /* color: #0070f3;
+  border-color: #0070f3; */
+  background: #e0e0e0;
+  box-shadow: inset 8px 8px 22px #bebebe,
+              inset -8px -8px 22px #ffffff;
 }
 
 .card h2 {
