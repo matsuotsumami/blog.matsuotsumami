@@ -3,7 +3,7 @@ module.exports = {
   reactStrictMode: true,
   watchers: {
     webpack: {
-      poll: true
-    }
-  }
+      poll: true,
+    },
+  },
 }
