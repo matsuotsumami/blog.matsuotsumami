@@ -36,7 +36,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const id = context.params?.id as string
+  const id = context.params?.id
+
+  if (typeof id !== 'string') throw Error('id is not string.')
 
   const data = await client.blog._id(id).$get()
 
