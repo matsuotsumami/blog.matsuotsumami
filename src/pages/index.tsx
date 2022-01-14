@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { client } from '~/libs/client'
 import { Content } from '~/api/types'
 import { MicroCMSContentId, MicroCMSDate } from 'microcms-js-sdk'
+import { pagesPath } from '~/utils/$path'
 
 type Props = {
   blog: (Content & MicroCMSContentId & MicroCMSDate)[]
@@ -21,7 +22,7 @@ const Home: NextPage<Props> = (props) => {
         <ul>
           {blog.map((blog) => (
             <li key={blog.id}>
-              <Link href={`/blog/${blog.id}`}>
+              <Link href={pagesPath.posts._id(blog.id).$url()}>
                 <a>{blog.title}</a>
               </Link>
             </li>

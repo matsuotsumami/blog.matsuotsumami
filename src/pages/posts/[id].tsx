@@ -31,7 +31,7 @@ const BlogPage: NextPage<Props> = (props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await client.blog.$get()
 
-  const paths = data.contents.map((content) => `/blog/${content.id}`)
+  const paths = data.contents.map((content) => `/posts/${content.id}`)
   return { paths, fallback: false }
 }
 
