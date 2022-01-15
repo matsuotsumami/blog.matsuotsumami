@@ -5,6 +5,8 @@ import { client } from '~/libs/client'
 import { Content } from '~/api/types'
 import { MicroCMSContentId, MicroCMSDate } from 'microcms-js-sdk'
 import { pagesPath } from '~/utils/$path'
+import { Header } from '~/components/Header'
+import styles from '~/styles/Home.module.scss'
 
 type Props = {
   blog: (Content & MicroCMSContentId & MicroCMSDate)[]
@@ -16,9 +18,10 @@ const Home: NextPage<Props> = (props) => {
   return (
     <>
       <Head>
-        <title>おつまみ</title>
+        <title>otsumami blog</title>
       </Head>
-      <div>
+      <Header />
+      <main className={styles.main}>
         <ul>
           {blog.map((blog) => (
             <li key={blog.id}>
@@ -28,7 +31,7 @@ const Home: NextPage<Props> = (props) => {
             </li>
           ))}
         </ul>
-      </div>
+      </main>
     </>
   )
 }
