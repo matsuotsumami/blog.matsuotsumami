@@ -1,7 +1,9 @@
 export type Content = {
   title: string
-  tags: {
-    name: string
-  }[]
+  tags: Tag[]
   body: string
+}
+
+export type Tag = {
+  name: string
 }
