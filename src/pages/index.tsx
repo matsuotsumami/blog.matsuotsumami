@@ -5,6 +5,7 @@ import { Content } from '~/api/types'
 import { MicroCMSContentId, MicroCMSDate } from 'microcms-js-sdk'
 import { Header } from '~/components/Header'
 import { Home as Main } from '~/components/Home'
+import { Footer } from '~/components/Footer'
 
 type Props = {
   blog: (Content & MicroCMSContentId & MicroCMSDate)[]
@@ -20,6 +21,7 @@ const Home: NextPage<Props> = (props) => {
       </Head>
       <Header />
       <Main blog={props.blog} />
+      <Footer />
     </>
   )
 }
