@@ -5,7 +5,7 @@ import { pagesPath } from '~/utils/$path'
 import { Content } from '~/api/types'
 import { MicroCMSContentId, MicroCMSDate } from 'microcms-js-sdk'
 
-type Props = {
+export type Props = {
   blog: (Content & MicroCMSContentId & MicroCMSDate)[]
 }
 

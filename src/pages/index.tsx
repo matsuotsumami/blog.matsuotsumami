@@ -1,15 +1,9 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import { client } from '~/libs/client'
-import { Content } from '~/api/types'
-import { MicroCMSContentId, MicroCMSDate } from 'microcms-js-sdk'
 import { Header } from '~/components/Header'
-import { Home as Main } from '~/components/Home'
+import { Home as Main, Props } from '~/components/Home'
 import { Footer } from '~/components/Footer'
-
-type Props = {
-  blog: (Content & MicroCMSContentId & MicroCMSDate)[]
-}
 
 const Home: NextPage<Props> = (props) => {
   const { blog } = props
