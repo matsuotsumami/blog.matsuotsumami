@@ -21,7 +21,10 @@
       ],
       "@/*": [
         "src/*"
-      ]
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

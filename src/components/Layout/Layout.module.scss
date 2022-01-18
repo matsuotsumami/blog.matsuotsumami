@@ -1,0 +1,12 @@
+@use "@styles/variables"; 
+
+.layout {
+  display: grid;
+  grid-template-rows: variables.rem(50) 1fr variables.rem(50);
+  grid-template-columns: 1fr variables.rem(100);
+  grid-template-areas: 
+    "header header"
+    "main   side  "
+    "footer footer";
+  font-size: variables.rem(16);
+}
