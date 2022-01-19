@@ -3,11 +3,13 @@ import {
   MicroCMSListResponse,
   MicroCMSQueries,
 } from 'microcms-js-sdk'
-import { Content } from '../types'
+import { Content, Tag } from '../types'
 
 export type Methods = {
   get: {
     query?: MicroCMSQueries
-    resBody: MicroCMSListResponse<Content & { tags: MicroCMSListContent[] }>
+    resBody: MicroCMSListResponse<
+      Content & { tags: (Tag & MicroCMSListContent)[] }
+    >
   }
 }

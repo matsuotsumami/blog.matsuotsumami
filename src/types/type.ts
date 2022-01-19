@@ -1,6 +1,8 @@
-import { MicroCMSContentId, MicroCMSDate } from 'microcms-js-sdk'
-import { Content } from '~/api/types'
+import { MicroCMSListContent } from 'microcms-js-sdk'
+import { Content, Tag } from '~/api/types'
 
 export type HomeType = {
-  blog: (Content & MicroCMSContentId & MicroCMSDate)[]
+  blog: (Content & {
+    tags: (Tag & MicroCMSListContent)[]
+  } & MicroCMSListContent)[]
 }
