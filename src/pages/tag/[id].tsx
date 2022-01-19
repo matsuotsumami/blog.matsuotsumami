@@ -2,7 +2,10 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import { client } from '~/libs/client'
 import { HomeType } from '~/types/type'
 import Head from 'next/head'
-import LayoutHome from '~/components/LayoutHome'
+import { Home as Main } from '~/components/Home'
+import { Layout } from '~/components/Layout'
+import { Header } from '~/components/Header'
+import { Footer } from '~/components/Footer'
 
 type Props = HomeType & {
   tag: string
@@ -15,7 +18,11 @@ const TagPage: NextPage<Props> = (props) => {
       <Head>
         <title>{tag}</title>
       </Head>
-      <LayoutHome blog={blog} />
+      <Layout>
+        <Header />
+        <Main blog={blog} />
+        <Footer />
+      </Layout>
     </>
   )
 }

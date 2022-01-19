@@ -1,0 +1,37 @@
+@use "@styles/variables" as v; 
+
+.card {
+  &:not(:first-child) {
+    margin-top: 1.5rem;
+  }
+}
+
+.title {
+  line-height: 1;
+
+  a {
+    font-size: v.rem(24);
+  }
+}
+
+.tags {
+  display: flex;
+  margin-top: 6px;
+
+  ul {
+    display: flex;
+
+    a {
+      padding: 2px;
+      border-radius: 4px;
+      background: #e6e6e6;
+      border: 1px solid #545454;
+      // box-shadow:  4px 4px 7px #c6c6c6,
+      //             -4px -4px 7px #ffffff;
+    }
+
+    li:not(:first-child) {
+      margin-left: v.rem(10);
+    }
+  }
+}

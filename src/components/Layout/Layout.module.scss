@@ -9,4 +9,15 @@
     "main   side  "
     "footer footer";
   font-size: v.rem(16);
+
+  @include v.mq(sm) {
+    display: grid;
+    grid-template-rows: v.rem(50) 1fr v.rem(50);
+    grid-template-columns: 100%;
+    grid-template-areas: 
+      "header header"
+      "main   main  "
+      "footer footer";
+  }
 }
+

@@ -1,4 +1,11 @@
+@use "@styles/variables" as v; 
+
 .main {
   grid-area: main;
   background: var(--color-main);
+  padding: v.rem(24);
+
+  li {
+    list-style: none;
+  }
 }
