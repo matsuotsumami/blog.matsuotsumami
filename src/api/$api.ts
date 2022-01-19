@@ -7,6 +7,8 @@ import { Methods as Methods0 } from './blog'
 import { Methods as Methods1 } from './blog/_id@string'
 // prettier-ignore
 import { Methods as Methods2 } from './tags'
+// prettier-ignore
+import { Methods as Methods3 } from './tags/_id@string'
 
 // prettier-ignore
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
@@ -37,6 +39,18 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
         `${prefix}${PATH0}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
     },
     tags: {
+      _id: (val1: string) => {
+        const prefix1 = `${PATH1}/${val1}`
+
+        return {
+          get: (option?: { query?: Methods3['get']['query'], config?: T }) =>
+            fetch<Methods3['get']['resBody']>(prefix, prefix1, GET, option).json(),
+          $get: (option?: { query?: Methods3['get']['query'], config?: T }) =>
+            fetch<Methods3['get']['resBody']>(prefix, prefix1, GET, option).json().then(r => r.body),
+          $path: (option?: { method?: 'get'; query: Methods3['get']['query'] }) =>
+            `${prefix}${prefix1}${option && option.query ? `?${dataToURLString(option.query)}` : ''}`
+        }
+      },
       get: (option?: { query?: Methods2['get']['query'], config?: T }) =>
         fetch<Methods2['get']['resBody']>(prefix, PATH1, GET, option).json(),
       $get: (option?: { query?: Methods2['get']['query'], config?: T }) =>
