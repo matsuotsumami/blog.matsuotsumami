@@ -3,11 +3,11 @@
 .layout {
   display: grid;
   grid-template-rows: v.rem(50) 1fr v.rem(50);
-  grid-template-columns: 1fr v.rem(100);
+  grid-template-columns: v.rem(50) 1fr v.rem(50);
   grid-template-areas: 
-    "header header"
-    "main   side  "
-    "footer footer";
+    "left header right"
+    "left    main   right "
+    "footer footer footer";
   font-size: v.rem(16);
 
   @include v.mq(sm) {

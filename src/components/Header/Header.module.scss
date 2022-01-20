@@ -1,15 +1,11 @@
 .header {
   grid-area: header;
   width: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  z-index: 10;
   padding: 10px 10px;
   background: var(--color--main);
   align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
   
   h1 {
     cursor: pointer;
