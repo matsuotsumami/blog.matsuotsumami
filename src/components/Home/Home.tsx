@@ -7,16 +7,24 @@ import {
   MicroCMSListContent,
 } from 'microcms-js-sdk'
 import { Card } from '~/components/Card'
+import { AiFillTag } from 'react-icons/ai'
 
 export type Props = {
   blog: (Content & { tags: (Tag & MicroCMSListContent)[] } & MicroCMSContentId &
     MicroCMSDate)[]
+  tagName?: string
 }
 
 const Home: React.VFC<Props> = (props) => {
-  const { blog } = props
+  const { blog, tagName } = props
   return (
     <main className={styles.main}>
+      {tagName !== undefined && (
+        <div className={styles.tag}>
+          <AiFillTag size={50} />
+          <h1>{tagName}</h1>
+        </div>
+      )}
       {blog.map((blog) => (
         <Card
           key={blog.id}

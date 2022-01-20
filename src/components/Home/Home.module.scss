@@ -5,7 +5,16 @@
   background: var(--color-main);
   padding: v.rem(24);
 
+  .tag {
+    display: flex;
+    vertical-align: middle;
+  }
+
   li {
     list-style: none;
   }
 }
+
+// .tag {
+//   text-align: center;
+// }

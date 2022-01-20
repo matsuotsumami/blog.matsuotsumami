@@ -20,7 +20,7 @@ const TagPage: NextPage<Props> = (props) => {
       </Head>
       <Layout>
         <Header />
-        <Main blog={blog} />
+        <Main blog={blog} tagName={tag} />
         <Footer />
       </Layout>
     </>
