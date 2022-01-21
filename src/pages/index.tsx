@@ -12,6 +12,7 @@ type Props = HomeType
 const Home: NextPage<Props> = (props) => {
   const { blog } = props
   console.log(blog)
+  console.log(process.env.NODE_ENV)
   return (
     <>
       <Head>
