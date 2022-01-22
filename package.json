@@ -5,7 +5,7 @@
     "dev": "run-p dev:*",
     "dev:next": "next dev",
     "dev:path": "pathpida --watch",
-    "dev:tsm": "tsm src --watch --implementation sass --nameFormat none --exportType default --aliasPrefixes.@ src/",
+    "dev:tsm": "tsm src --watch --ignoreInitial --implementation sass --nameFormat none --exportType default --aliasPrefixes.@ src/",
     "build": "pathpida && next build && next export",
     "start": "next start",
     "lint": "next lint",

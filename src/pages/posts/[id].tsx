@@ -3,6 +3,10 @@ import { client } from '~/libs/client'
 import { Content } from '~/api/types'
 import { MicroCMSDate } from 'microcms-js-sdk'
 import Head from 'next/head'
+import { Layout } from '~/components/Layout'
+import { Header } from '~/components/Header'
+import { Footer } from '~/components/Footer'
+import { Posts } from '~/components/Posts'
 
 type Props = {
   blog: Content & MicroCMSDate
@@ -15,15 +19,11 @@ const BlogPage: NextPage<Props> = (props) => {
       <Head>
         <title>{blog.title}</title>
       </Head>
-      <main>
-        <h1>{blog.title}</h1>
-        <p>{blog.publishedAt}</p>
-        <article
-          dangerouslySetInnerHTML={{
-            __html: `${blog.body}`,
-          }}
-        />
-      </main>
+      <Layout>
+        <Header />
+        <Posts blog={blog} />
+        <Footer />
+      </Layout>
     </>
   )
 }

@@ -1,0 +1,14 @@
+@use "@styles/variables" as v; 
+
+.main {
+  grid-area: main;
+  background: var(--color-main);
+  padding: v.rem(24);
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+// .tag {
+//   text-align: center;
+// }
