@@ -2,9 +2,12 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { Methods } from '~/api/blog'
 import { client } from '~/libs/client'
 
-type ApiType = Methods['get']['resBody']
+export type SearchApiType = Methods['get']['resBody']
 
-const search = async (req: NextApiRequest, res: NextApiResponse<ApiType>) => {
+const search = async (
+  req: NextApiRequest,
+  res: NextApiResponse<SearchApiType>
+) => {
   const query = req.query.q
   if (typeof query !== 'string') {
     res.status(400).end()

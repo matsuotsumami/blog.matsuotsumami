@@ -12,3 +12,14 @@ const fetchConfig = {
 }
 
 export const client = api(aspida(fetch, fetchConfig))
+
+const pageApiBaseURL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://blog.otsumami.dev'
+
+const pageFetchConfig = {
+  baseURL: pageApiBaseURL,
+}
+
+export const pageApi = api(aspida(fetch, pageFetchConfig))
