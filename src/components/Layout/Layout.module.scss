@@ -2,17 +2,26 @@
 
 .layout {
   display: grid;
-  grid-template-rows: v.rem(50) 1fr v.rem(50);
-  grid-template-columns: v.rem(50) 1fr v.rem(50);
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: v.rem(225) v.rem(750) v.rem(225);
   grid-template-areas: 
-    "left header right"
-    "left    main   right "
+    "left   header right"
+    "left   main   right "
     "footer footer footer";
   font-size: v.rem(16);
+  margin-left: auto;
+  margin-right: auto;
+  width: v.rem(1200);
+  max-width: none;
+  height: 100vh;
 
-  @include v.mq(sm) {
+  @include v.mq(xl) {
+    grid-template-columns: auto v.rem(750) v.rem(225);
+    width: 100%;
+  }
+
+  @include v.mq(md) {
     display: grid;
-    grid-template-rows: v.rem(50) 1fr v.rem(50);
     grid-template-columns: 100%;
     grid-template-areas: 
       "header header"
