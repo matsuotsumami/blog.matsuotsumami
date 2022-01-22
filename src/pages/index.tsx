@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { client, pageApi } from '~/libs/client'
+import { client } from '~/libs/client'
 import { Layout } from '~/components/Layout'
 import { Header } from '~/components/Header'
 import { Home as Main } from '~/components/Home'
@@ -29,12 +29,6 @@ const Home: NextPage<Props> = (props) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const data = await client.blog.$get()
-
-  const search = await pageApi.api.search.$get({ query: { q: '追加' } })
-
-  console.log('search')
-
-  console.log(search)
 
   return {
     props: {
