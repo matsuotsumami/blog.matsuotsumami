@@ -13,7 +13,8 @@
   margin-right: auto;
   width: v.rem(1200);
   max-width: none;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 
   @include v.mq(xl) {
     grid-template-columns: auto v.rem(750) v.rem(225);
@@ -21,7 +22,6 @@
   }
 
   @include v.mq(md) {
-    display: grid;
     grid-template-columns: 100%;
     grid-template-areas: 
       "header header"
@@ -29,4 +29,3 @@
       "footer footer";
   }
 }
-
