@@ -6,7 +6,7 @@
     "dev:next": "next dev",
     "dev:path": "pathpida --watch",
     "dev:tsm": "tsm src --watch --ignoreInitial --implementation sass --nameFormat none --exportType default --aliasPrefixes.@ src/",
-    "build": "pathpida && next build && next export",
+    "build": "pathpida && next build",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier-eslint --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
