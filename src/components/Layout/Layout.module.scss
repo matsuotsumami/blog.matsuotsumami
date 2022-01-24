@@ -6,7 +6,7 @@
   grid-template-columns: v.rem(225) v.rem(750) v.rem(225);
   grid-template-areas: 
     "left   header right"
-    "left   main   right "
+    "left   main   aside "
     "footer footer footer";
   font-size: v.rem(16);
   margin-left: auto;

@@ -8,6 +8,8 @@ import {
 } from 'microcms-js-sdk'
 import { Card } from '~/components/Card'
 import { AiFillTag } from 'react-icons/ai'
+import { useRouter } from 'next/router'
+import { SearchInput } from '../SearchInput'
 
 export type Props = {
   blog: (Content & { tags: (Tag & MicroCMSListContent)[] } & MicroCMSContentId &
@@ -17,8 +19,13 @@ export type Props = {
 
 const Home: React.VFC<Props> = (props) => {
   const { blog, tagName } = props
+  const router = useRouter()
+
+  const searchText = router.query.q as string | undefined
+
   return (
     <main className={styles.main}>
+      {searchText && <SearchInput />}
       {tagName !== undefined && (
         <div className={styles.tag}>
           <AiFillTag size={50} />

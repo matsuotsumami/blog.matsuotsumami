@@ -10,7 +10,9 @@ import useAspidaSWR from '@aspida/swr'
 import { useRouter } from 'next/dist/client/router'
 import { Loading } from '~/components/Loading'
 
-// type Props = HomeType
+export type Query = {
+  q: string
+}
 
 const SearchPage: NextPage = () => {
   const route = useRouter()

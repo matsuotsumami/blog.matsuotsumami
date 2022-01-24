@@ -6,6 +6,7 @@ import { Header } from '~/components/Header'
 import { Home as Main } from '~/components/Home'
 import { Footer } from '~/components/Footer'
 import { HomeType } from '~/types/type'
+import { Side } from '~/components/Side'
 
 type Props = HomeType
 
@@ -21,6 +22,7 @@ const Home: NextPage<Props> = (props) => {
       <Layout>
         <Header />
         <Main blog={blog} />
+        <Side />
         <Footer />
       </Layout>
     </>
