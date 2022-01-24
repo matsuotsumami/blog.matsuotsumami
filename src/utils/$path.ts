@@ -6,6 +6,9 @@ export const pagesPath = {
       $url: (url?: { hash?: string }) => ({ pathname: '/posts/[id]' as const, query: { id }, hash: url?.hash })
     })
   },
+  search: {
+    $url: (url?: { hash?: string }) => ({ pathname: '/search' as const, hash: url?.hash })
+  },
   tag: {
     _id: (id: string | number) => ({
       $url: (url?: { hash?: string }) => ({ pathname: '/tag/[id]' as const, query: { id }, hash: url?.hash })
