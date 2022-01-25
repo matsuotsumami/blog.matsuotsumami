@@ -21,11 +21,17 @@
     width: 100%;
   }
 
+  @include v.mq(lg) {
+    grid-template-columns: auto auto auto;
+  }
+
   @include v.mq(md) {
     grid-template-columns: 100%;
+    grid-template-rows: auto 1fr auto auto;
     grid-template-areas: 
       "header header"
       "main   main  "
+      "aside  aside "
       "footer footer";
   }
 }

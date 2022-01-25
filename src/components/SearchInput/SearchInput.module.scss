@@ -1,4 +1,7 @@
+@use "@styles/variables" as v; 
+
 .searchInput {
   width: 100%;
+  min-width: v.rem(200);
   background: var(--main-color);
 }
