@@ -7,6 +7,9 @@ import { Layout } from '~/components/Layout'
 import { Header } from '~/components/Header'
 import { Footer } from '~/components/Footer'
 import { Posts } from '~/components/Posts'
+import cheerio from 'cheerio'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/base16/snazzy.css'
 
 type Props = {
   blog: Content & MicroCMSDate
@@ -40,7 +43,18 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
 
   if (typeof id !== 'string') throw Error('id is not string.')
 
-  const data = await client.blog._id(id).$get()
+  let data = await client.blog._id(id).$get()
+
+  const $ = cheerio.load(data.body)
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text())
+    $(elm).html(result.value)
+    $(elm).addClass('hljs')
+  })
+
+  console.log($.html())
+
+  data.body = $.html()
 
   return {
     props: {
