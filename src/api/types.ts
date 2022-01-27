@@ -1,5 +1,6 @@
 export type Content = {
   title: string
+  description: string
   tags: Tag[]
   body: string
 }
