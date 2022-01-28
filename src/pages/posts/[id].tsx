@@ -13,17 +13,19 @@ import 'highlight.js/styles/base16/snazzy.css'
 
 type Props = {
   blog: Content & MicroCMSDate
+  draftKey: string | null
 }
 
 const BlogPage: NextPage<Props> = (props) => {
-  const { blog } = props
+  const { blog, draftKey } = props
+  console.log(draftKey)
   return (
     <>
       <Head>
         <title>{blog.title}</title>
       </Head>
       <Layout>
-        <Header />
+        <Header draftKey={draftKey} />
         <Posts blog={blog} />
         <Footer />
       </Layout>
@@ -38,29 +40,43 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false }
 }
 
-export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const id = context.params?.id
-
-  if (typeof id !== 'string') throw Error('id is not string.')
-
-  let data = await client.blog._id(id).$get()
-
-  const $ = cheerio.load(data.body)
-  $('pre code').each((_, elm) => {
-    const result = hljs.highlightAuto($(elm).text())
-    $(elm).html(result.value)
-    $(elm).addClass('hljs')
-  })
-
-  console.log($.html())
-
-  data.body = $.html()
-
-  return {
-    props: {
-      blog: data,
-    },
-  }
+type PreviewType = {
+  id: string
+  draftKey: string
 }
+
+type QueryType = {
+  id: string
+}
+
+export const getStaticProps: GetStaticProps<Props, QueryType, PreviewType> =
+  async (context) => {
+    const id = context.params?.id
+    const preview = context.previewData?.draftKey ?? null
+
+    if (typeof id !== 'string') throw Error('id is not string.')
+
+    let data = preview
+      ? await client.blog._id(id).$get({ query: { draftKey: preview } })
+      : await client.blog._id(id).$get()
+
+    const $ = cheerio.load(data.body)
+    $('pre code').each((_, elm) => {
+      const result = hljs.highlightAuto($(elm).text())
+      $(elm).html(result.value)
+      $(elm).addClass('hljs')
+    })
+
+    console.log($.html())
+
+    data.body = $.html()
+
+    return {
+      props: {
+        blog: data,
+        draftKey: preview,
+      },
+    }
+  }
 
 export default BlogPage

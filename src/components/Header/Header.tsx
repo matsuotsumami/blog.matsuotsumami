@@ -3,7 +3,11 @@ import React from 'react'
 import { pagesPath } from '~/utils/$path'
 import styles from './Header.module.scss'
 
-const Header: React.VFC = () => {
+type Props = {
+  draftKey?: string | null
+}
+
+const Header: React.VFC<Props> = ({ draftKey }) => {
   return (
     <header className={styles.header}>
       <Link href={pagesPath.$url()} passHref>
@@ -11,6 +15,7 @@ const Header: React.VFC = () => {
           <a>otsumami blog</a>
         </h1>
       </Link>
+      {draftKey && <p>プレビューモード</p>}
     </header>
   )
 }
