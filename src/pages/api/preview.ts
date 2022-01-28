@@ -20,10 +20,13 @@ const preview = async (
     return res.status(401).end()
   }
 
-  res.setPreviewData({
-    id: content.id,
-    draftKey: req.query.draftKey,
-  })
+  res.setPreviewData(
+    {
+      id: content.id,
+      draftKey: req.query.draftKey,
+    },
+    { maxAge: 60 * 60 }
+  )
   res.writeHead(307, { Location: `/posts/${content['id']}` })
   res.end('Preview mode enabled')
 }
