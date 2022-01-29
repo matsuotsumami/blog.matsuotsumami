@@ -15,7 +15,7 @@ const Header: React.VFC<Props> = ({ draftKey }) => {
           <a>otsumami blog</a>
         </h1>
       </Link>
-      {draftKey && <p>プレビューモード</p>}
+      {draftKey && <a href='/api/exitpreview'>プレビューモード</a>}
     </header>
   )
 }
