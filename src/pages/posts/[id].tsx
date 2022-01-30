@@ -23,6 +23,7 @@ const BlogPage: NextPage<Props> = (props) => {
     <>
       <Head>
         <title>{blog.title}</title>
+        <meta name='description' content={blog.description} />
       </Head>
       <Layout>
         <Header draftKey={draftKey} />

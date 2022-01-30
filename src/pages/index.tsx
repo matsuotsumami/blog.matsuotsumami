@@ -18,6 +18,7 @@ const Home: NextPage<Props> = (props) => {
     <>
       <Head>
         <title>おつまみのブログ</title>
+        <meta name='description' content='matsuotsumamiの技術ブログです。' />
       </Head>
       <Layout>
         <Header />
