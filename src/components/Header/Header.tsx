@@ -12,9 +12,9 @@ const Header: React.VFC<Props> = ({ draftKey }) => {
   return (
     <header className={styles.header}>
       <Link href={pagesPath.$url()} passHref>
-        <h1>
-          <a>otsumami blog</a>
-        </h1>
+        <a>
+          <h1>otsumami blog</h1>
+        </a>
       </Link>
       {draftKey && (
         <Link href='/api/exitpreview'>
