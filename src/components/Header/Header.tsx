@@ -23,7 +23,7 @@ const Header: React.VFC<Props> = ({ draftKey }) => {
       )}
       <nav>
         <Link href='https://github.com/matsuotsumami'>
-          <a>
+          <a target='_blank' aria-label='matsuotsumami github'>
             <AiFillGithub size={30} />
           </a>
         </Link>
